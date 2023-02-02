@@ -7,4 +7,4 @@ Current operations:
 -Add characters
 -Replace characters
 ```
-Mostly works by indexing.
+Mostly works by indexing to edit rows and uses tkinter for choosing target file.
