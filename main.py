@@ -28,22 +28,42 @@ def main():
     print("\n")
     operation = input("Enter operation: ")
     
-    if operation != "x" or "d" or "i" or "r":
+    if operation not in ["d", "i", "r", "x"]:
         print("Invalid operation")
         return
 
     if operation == "d":
         charRange = input("Delete, enter character range (ex. 12:18): ")
+
+        # Prints example of the first row by running only the first line of the data through the remove function
+        print("Example of row 1:")
+        print("Original: ", data[0])
+        print("Edited: ", remove(charRange, [data[0]])[0])
+        input("Press enter to continue, or ctrl+c to cancel")
+
         save(remove(charRange, data))
     
     elif operation == "i":
         insertPoint = input("Insert, enter insert point (ex. 12): ")
         character = input("Insert, enter character(s) (ex. a): ")
+
+        #Same as above, but with insert function
+        print("Example of row 1:")
+        print("Original: ", data[0])
+        print("Edited: ", insert(insertPoint, character, [data[0]])[0])
+        input("Press enter to continue, or ctrl+c to cancel")
+
         save(insert(insertPoint, character, data))
 
     elif operation == "r":
         charRange = input("Replace, enter character range (ex. 12:18): ")
         character = input("Replace, enter character(s) (ex. a): ") 
+
+        print("Example of row 1:")
+        print("Original: ", data[0])
+        print("Edited: ", insert(charRange.split(':')[0], character, remove(charRange, [data[0]]))[0])
+        input("Press enter to continue, or ctrl+c to cancel")
+
         # Runs remove function, then runs insert function
         save(insert(charRange.split(':')[0], character, remove(charRange, data)))
 
