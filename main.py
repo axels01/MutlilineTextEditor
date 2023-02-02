@@ -28,7 +28,7 @@ def main():
     print("\n")
     operation = input("Enter operation: ")
     
-    if operation not in ["d", "i", "r", "x"]:
+    if operation not in operations:
         print("Invalid operation")
         return
 
