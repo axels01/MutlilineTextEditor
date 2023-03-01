@@ -8,3 +8,8 @@ Current operations:
 -Replace characters
 ```
 Mostly works by indexing to edit rows and uses tkinter for choosing target file.
+
+To do
+```
+Add "begining of line" and "end of line" as position alternatives.
+```
