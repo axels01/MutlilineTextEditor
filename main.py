@@ -20,6 +20,11 @@ def main():
         "x": "exit"
     }
 
+    positions = {
+        "s": "start of line",
+        "e": "end of line"
+    }
+
     print("Selected file: " + filename)
     print("\n")
     print("Operations:")
@@ -44,7 +49,10 @@ def main():
         save(remove(charRange, data))
     
     elif operation == "i":
-        insertPoint = input("Insert, enter insert point (ex. 12): ")
+        for line in positions:
+            print(line + " - " + positions[line])
+        print("\n")
+        insertPoint = input("Insert, enter insert point (ex. 12 or s or e): ")
         character = input("Insert, enter character(s) (ex. a): ")
 
         #Same as above, but with insert function
@@ -81,7 +89,12 @@ def remove(charRange, data):
 def insert(insertPoint, character, data):
     # Inserts character at insert point
     for i, line in enumerate(data):
-        data[i] =  line[:int(insertPoint)] + character + line[int(insertPoint):]
+        if insertPoint == "s":
+            data[i] = character + line
+        elif insertPoint == "e":
+            data[i] = line + character
+        else:
+            data[i] =  line[:int(insertPoint)] + character + line[int(insertPoint):]
     
     return data
         
