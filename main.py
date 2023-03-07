@@ -92,7 +92,10 @@ def insert(insertPoint, character, data):
         if insertPoint == "s":
             data[i] = character + line
         elif insertPoint == "e":
-            data[i] = line + character
+            if i == len(data) - 1:
+                data[i] = line[:-1] + character + "\n"
+            else:
+                data[i] = line + character
         else:
             data[i] =  line[:int(insertPoint)] + character + line[int(insertPoint):]
     
