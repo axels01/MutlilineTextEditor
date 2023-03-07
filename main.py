@@ -95,7 +95,7 @@ def insert(insertPoint, character, data):
             if i == len(data) - 1:
                 data[i] = line[:-1] + character + "\n"
             else:
-                data[i] = line + character
+                data[i] = line[:-1] + character + "\n"
         else:
             data[i] =  line[:int(insertPoint)] + character + line[int(insertPoint):]
     
